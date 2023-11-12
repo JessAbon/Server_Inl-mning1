@@ -12,17 +12,9 @@ public class Action {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int actionId;
-
-
 	private String details;
-
-
 	private Calendar requiredBy;
-
-
 	private String owningUser;
-
-
 	private boolean complete;
 
 
