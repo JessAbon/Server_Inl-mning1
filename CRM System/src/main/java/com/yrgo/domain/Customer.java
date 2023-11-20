@@ -45,7 +45,19 @@ public class Customer {
 
 
 	public String toString(){
-		return this.customerId + ": " + this.companyName ;
+		StringBuilder result = new StringBuilder();
+		result.append(this.customerId)
+				.append(": CompanyName: ").append(this.companyName)
+				.append(", Email: ").append(this.email)
+				.append(", Telephone: ").append(this.telephone)
+				.append(", Notes: ||").append(notes)
+				.append("\n Calls:");
+
+		for (Call call : calls) {
+			result.append("\n  ").append(call.toString());
+		}
+
+		return result.toString();
 	}
 
 	public String getCustomerId() {

@@ -32,7 +32,7 @@ public class Call {
 	}
 
 	public String toString()	{
-		return this.timeAndDate + " : " + this.notes;
+		return this.timeAndDate + " : || " + this.notes + "\n";
 	}
 
 	public Date getTimeAndDate() {

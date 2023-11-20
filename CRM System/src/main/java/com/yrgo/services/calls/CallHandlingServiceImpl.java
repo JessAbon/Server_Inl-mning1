@@ -1,5 +1,6 @@
 package com.yrgo.services.calls;
 
+import com.yrgo.dataaccess.RecordNotFoundException;
 import com.yrgo.domain.Action;
 import com.yrgo.domain.Call;
 import com.yrgo.services.customers.CustomerManagementService;
@@ -18,24 +19,13 @@ public class CallHandlingServiceImpl implements CallHandlingService {
         this.diaryService = diaryService;
     }
 
-/*    public void setCustomerService(CustomerManagementService customerService) {
-        this.customerService = customerService;
-    }
-
-    public void setDiaryService(DiaryManagementService diaryService) {
-        this.diaryService = diaryService;
-    }*/
-
     @Override
-    public void recordCall(String customerId, Call newCall, Collection<Action> actions) throws CustomerNotFoundException {
-
+    public void recordCall(String customerId, Call newCall, Collection<Action> actions) throws CustomerNotFoundException, RecordNotFoundException{
         customerService.recordCall(customerId, newCall);
         actions.forEach(action -> diaryService.recordAction(action));
+
+
         // Eller, med metodreferens:
         // actions.forEach(diaryService::recordAction);
-
-
-
-
     }
 }
