@@ -47,10 +47,10 @@ public class Customer {
 	public String toString(){
 		StringBuilder result = new StringBuilder();
 		result.append(this.customerId)
-				.append(": CompanyName: ").append(this.companyName)
-				.append(", Email: ").append(this.email)
-				.append(", Telephone: ").append(this.telephone)
-				.append(", Notes: ||").append(notes)
+                .append(": CompanyName: ").append(this.companyName)
+                .append(", Email: ").append(this.email)
+                .append(", Telephone: ").append(this.telephone)
+				.append(", Notes: ||").append(String.join(" || ", notes)).append(" || ")
 				.append("\n Calls:");
 
 		for (Call call : calls) {

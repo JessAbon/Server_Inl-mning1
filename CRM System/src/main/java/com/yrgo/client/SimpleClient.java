@@ -18,14 +18,11 @@ public class SimpleClient {
     public static void main(String[] args) throws RecordNotFoundException, CustomerNotFoundException {
         ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application.xml");
 
-        CustomerManagementService customerService = container.getBean(CustomerManagementService.class);
+        CustomerManagementService customerService = container.getBean("customerManagementService", CustomerManagementService.class);
         CallHandlingService callService = container.getBean(CallHandlingService.class);
         DiaryManagementService diaryService = container.getBean(DiaryManagementService.class);
 
         customerService.newCustomer(new Customer("1", "Acme", "Good Customer"));
-
-        // Jag vet inte riktigt varför inte hela listan med calls skrivs ut
-        // Bara newCall 2 skrivs ut just nu
 
         Call newCall = new Call("Larry Wall called from Acme Corp");
         Action action1 = new Action("Call back Larry to ask how things are going", new GregorianCalendar(2016, 0, 0), "rac");
