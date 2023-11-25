@@ -4,9 +4,11 @@ import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.aop.MethodBeforeAdvice;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
+@Component
 public class PerformanceTimingAdvice {
 
     public Object performTimingMeasurement(ProceedingJoinPoint method) throws Throwable {
